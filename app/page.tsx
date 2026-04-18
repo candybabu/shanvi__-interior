@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { submitLead } from './actions';
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans scroll-smooth">
@@ -113,6 +113,37 @@ export default function Home() {
             Chat on WhatsApp
           </a>
         </div>
+        <div className="mt-10 bg-gray-50 p-8 rounded-2xl border border-gray-200">
+  <h3 className="text-2xl font-bold mb-6 text-gray-800">Hume Message Bhejein</h3>
+  <form action={submitLead} className="flex flex-col gap-4">
+    <input 
+      name="name" 
+      type="text" 
+      placeholder="Aapka Naam" 
+      required 
+      className="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+    />
+    <input 
+      name="phone" 
+      type="text" 
+      placeholder="WhatsApp Number" 
+      required 
+      className="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+    />
+    <textarea 
+      name="message" 
+      placeholder="Aapko kya kaam karwana hai? (PVC, WPC, Kitchen...)" 
+      rows={4}
+      className="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+    ></textarea>
+    <button 
+      type="submit" 
+      className="bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-colors"
+    >
+      Submit Details
+    </button>
+  </form>
+</div>
       </section>
 
       {/* Footer */}
