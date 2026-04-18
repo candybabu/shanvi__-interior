@@ -4,8 +4,8 @@ import React from 'react';
 import { submitLead } from "./actions";
 
 export default function Home() {
-  // Form submission handler
-  const handleFormSubmit = async (formData: FormData) => {
+  // TypeScript error fix karne ke liye humne Promise<void> ka use kiya hai
+  const handleFormSubmit = async (formData: FormData): Promise<void> => {
     try {
       const result = await submitLead(formData);
       if (result.success) {
@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans scroll-smooth text-gray-900">
-      {/* 1. Header / Navbar */}
+      {/* 1. Navbar */}
       <nav className="bg-white shadow-md p-4 sticky top-0 z-50 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-blue-700">Shanvi Interior Hub</h1>
         <div className="hidden md:flex space-x-6">
@@ -45,7 +45,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 3. Services Section with Image Tags */}
+      {/* 3. Services Section with Images */}
       <section id="services" className="py-20 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Premium Services</h2>
@@ -57,7 +57,7 @@ export default function Home() {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
             <img src="/Kitchen.jpg" alt="Modular Kitchen" className="w-full h-64 object-cover" />
             <div className="p-8">
-              <h3 className="text-2xl font-bold mb-3">Modular Kitchen</h3>
+              <h3 className="text-2xl font-bold mb-3 text-gray-800">Modular Kitchen</h3>
               <p className="text-gray-600">Waterproof and termite-proof PVC kitchen cabinets.</p>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function Home() {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
             <img src="/ceiling.jpg" alt="False Ceiling" className="w-full h-64 object-cover" />
             <div className="p-8">
-              <h3 className="text-2xl font-bold mb-3">False Ceiling</h3>
+              <h3 className="text-2xl font-bold mb-3 text-gray-800">False Ceiling</h3>
               <p className="text-gray-600">Modern POP & PVC ceiling designs with LED lighting.</p>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
             <img src="/TVunits.jpg" alt="TV Unit" className="w-full h-64 object-cover" />
             <div className="p-8">
-              <h3 className="text-2xl font-bold mb-3">TV Units & Panels</h3>
+              <h3 className="text-2xl font-bold mb-3 text-gray-800">TV Units & Panels</h3>
               <p className="text-gray-600">Elegant designs using charcoal and PVC louvers.</p>
             </div>
           </div>
@@ -86,11 +86,11 @@ export default function Home() {
       <section id="contact" className="py-20 max-w-3xl mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-10">Contact Us</h2>
         <div className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
-          <h3 className="text-2xl font-bold mb-6">Hume Message Bhejein</h3>
+          <h3 className="text-2xl font-bold mb-6 text-gray-800">Hume Message Bhejein</h3>
           <form action={handleFormSubmit} className="flex flex-col gap-4 text-left">
-            <input name="name" type="text" placeholder="Aapka Naam" required className="p-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500" />
-            <input name="phone" type="text" placeholder="WhatsApp Number" required className="p-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500" />
-            <textarea name="message" placeholder="Aapko kya kaam karwana hai?" rows={4} className="p-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            <input name="name" type="text" placeholder="Aapka Naam" required className="p-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 text-gray-800" />
+            <input name="phone" type="text" placeholder="WhatsApp Number" required className="p-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 text-gray-800" />
+            <textarea name="message" placeholder="Aapko kya kaam karwana hai?" rows={4} className="p-3 rounded-lg border border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"></textarea>
             <button type="submit" className="bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">
               Submit Details
             </button>
