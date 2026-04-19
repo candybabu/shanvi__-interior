@@ -90,7 +90,7 @@ export default function Home() {
   src="/TVunits.jpg" 
  className="cursor-pointer w-full h-64 object-cover"
   whileHover={{ scale: 1.05 }}
-  onClick={() => setSelectedImg("/TVunit.jpg")}
+  onClick={() => setSelectedImg("/TVunits.jpg")}
 />
             <div className="p-8">
               <h3 className="text-2xl font-bold mb-3 text-gray-800">TV Units & Panels</h3>
