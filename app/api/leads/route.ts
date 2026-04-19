@@ -8,10 +8,20 @@ export async function GET() {
       .select('*')
       .order('created_at', { ascending: false });
 
-    if (error) throw error;
+    if (error) {
+      // Yeh line humein browser mein asli wajah dikhayegi
+      return NextResponse.json({ 
+        error: "Supabase Error", 
+        message: error.message, 
+        hint: error.hint 
+      }, { status: 500 });
+    }
 
     return NextResponse.json(data);
-  } catch (error) {
-    return NextResponse.json({ error: 'Data fetch nahi ho paya' }, { status: 500 });
+  } catch (error: any) {
+    return NextResponse.json({ 
+      error: 'Server Error', 
+      message: error.message 
+    }, { status: 500 });
   }
 }
