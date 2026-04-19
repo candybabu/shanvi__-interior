@@ -5,15 +5,12 @@ export async function GET() {
   try {
     const { data, error } = await supabase
       .from('leads')
-      .select('*')
-      .order('created_at', { ascending: false });
+      .select('*'); // Maine order wali line hata di hai
 
     if (error) {
-      // Yeh line humein browser mein asli wajah dikhayegi
       return NextResponse.json({ 
         error: "Supabase Error", 
-        message: error.message, 
-        hint: error.hint 
+        message: error.message 
       }, { status: 500 });
     }
 
