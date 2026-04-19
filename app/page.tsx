@@ -60,7 +60,7 @@ export default function Home() {
   src="/Kitchen.jpg"  // Jo aapki file ka asli naam hai
   className="cursor-pointer w-full h-64 object-cover"
   whileHover={{ scale: 1.05 }}
-  onClick={() => setSelectedImg("/kitchen.jpg")} 
+  onClick={() => setSelectedImg("/Kitchen.jpg")} 
 />            <div className="p-8">
               <h3 className="text-2xl font-bold mb-3 text-gray-800">Modular Kitchen</h3>
               <p className="text-gray-600">Waterproof and termite-proof PVC kitchen cabinets.</p>
@@ -71,6 +71,9 @@ export default function Home() {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
             <motion.img
   src="/ceiling.jpg" 
+
+
+
   className="cursor-pointer w-full h-64 object-cover"
   whileHover={{ scale: 1.05 }}
   onClick={() => setSelectedImg("/ceiling.jpg")}
@@ -87,7 +90,7 @@ export default function Home() {
   src="/TVunits.jpg" 
  className="cursor-pointer w-full h-64 object-cover"
   whileHover={{ scale: 1.05 }}
-  onClick={() => setSelectedImg("/tv-unit.jpg")}
+  onClick={() => setSelectedImg("/TVunit.jpg")}
 />
             <div className="p-8">
               <h3 className="text-2xl font-bold mb-3 text-gray-800">TV Units & Panels</h3>
