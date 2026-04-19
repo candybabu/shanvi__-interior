@@ -57,7 +57,7 @@ export default function Home() {
           {/* Card 1 */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
 <motion.img
-  src="/kitchen.jpg"  // Jo aapki file ka asli naam hai
+  src="/Kitchen.jpg"  // Jo aapki file ka asli naam hai
   className="cursor-pointer w-full h-64 object-cover"
   whileHover={{ scale: 1.05 }}
   onClick={() => setSelectedImg("/kitchen.jpg")} 
@@ -84,7 +84,7 @@ export default function Home() {
           {/* Card 3 */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
             <motion.img
-  src="/TVunit.jpg" 
+  src="/TVunits.jpg" 
  className="cursor-pointer w-full h-64 object-cover"
   whileHover={{ scale: 1.05 }}
   onClick={() => setSelectedImg("/tv-unit.jpg")}
