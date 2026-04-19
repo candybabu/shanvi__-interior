@@ -84,7 +84,7 @@ export default function Home() {
           {/* Card 3 */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
             <motion.img
-  src="/tv-unit.jpg" 
+  src="/TVunit.jpg" 
  className="cursor-pointer w-full h-64 object-cover"
   whileHover={{ scale: 1.05 }}
   onClick={() => setSelectedImg("/tv-unit.jpg")}
