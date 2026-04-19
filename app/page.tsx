@@ -1,10 +1,11 @@
 "use client";
-
-import React from 'react';
-import { submitLead } from "./actions";
-
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
+import { submitLead } from '@/app/actions';
 export default function Home() {
   // TypeScript error fix karne ke liye humne Promise<void> ka use kiya hai
+  const [selectedImg, setSelectedImg] = useState<string | null>(null);
   const handleFormSubmit = async (formData: FormData): Promise<void> => {
     try {
       const result = await submitLead(formData);
@@ -55,8 +56,12 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1 */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-            <img src="/Kitchen.jpg" alt="Modular Kitchen" className="w-full h-64 object-cover" />
-            <div className="p-8">
+<motion.img
+  src="/kitchen.jpg"  // Jo aapki file ka asli naam hai
+  className="cursor-pointer w-full h-64 object-cover"
+  whileHover={{ scale: 1.05 }}
+  onClick={() => setSelectedImg("/kitchen.jpg")} 
+/>            <div className="p-8">
               <h3 className="text-2xl font-bold mb-3 text-gray-800">Modular Kitchen</h3>
               <p className="text-gray-600">Waterproof and termite-proof PVC kitchen cabinets.</p>
             </div>
@@ -64,7 +69,12 @@ export default function Home() {
 
           {/* Card 2 */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-            <img src="/ceiling.jpg" alt="False Ceiling" className="w-full h-64 object-cover" />
+            <motion.img
+  src="/ceiling.jpg" 
+  className="cursor-pointer w-full h-64 object-cover"
+  whileHover={{ scale: 1.05 }}
+  onClick={() => setSelectedImg("/ceiling.jpg")}
+/>
             <div className="p-8">
               <h3 className="text-2xl font-bold mb-3 text-gray-800">False Ceiling</h3>
               <p className="text-gray-600">Modern POP & PVC ceiling designs with LED lighting.</p>
@@ -73,7 +83,12 @@ export default function Home() {
 
           {/* Card 3 */}
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-            <img src="/TVunits.jpg" alt="TV Unit" className="w-full h-64 object-cover" />
+            <motion.img
+  src="/tv-unit.jpg" 
+ className="cursor-pointer w-full h-64 object-cover"
+  whileHover={{ scale: 1.05 }}
+  onClick={() => setSelectedImg("/tv-unit.jpg")}
+/>
             <div className="p-8">
               <h3 className="text-2xl font-bold mb-3 text-gray-800">TV Units & Panels</h3>
               <p className="text-gray-600">Elegant designs using charcoal and PVC louvers.</p>
@@ -97,6 +112,30 @@ export default function Home() {
           </form>
         </div>
       </section>
+      {/* Yaha paste karein */}
+<AnimatePresence>
+  {selectedImg && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black/90 z-[60] flex items-center justify-center p-4 cursor-zoom-out"
+      onClick={() => setSelectedImg(null)}
+    >
+      <button className="absolute top-5 right-5 text-white bg-white/10 p-2 rounded-full hover:bg-white/20 transition">
+        <X size={32} />
+      </button>
+      <motion.img
+        src={selectedImg}
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        className="max-w-full max-h-[90vh] rounded-xl shadow-2xl border-4 border-white/10"
+      />
+    </motion.div>
+  )}
+</AnimatePresence>
+{/* Footer shuru hone se pehle */}
 
       <footer className="py-10 bg-gray-900 text-white text-center mt-10">
         <p>© 2026 Shanvi Interior Solutions | Durg, Chhattisgarh</p>
